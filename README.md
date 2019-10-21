@@ -12,7 +12,7 @@ run all OSS services (config-server, gateway-server, service-discovery)
 communication will happen as follows <br>
 browser -> gateway -> service-discovery -> ui-service -> service-discovery -> gateway -> service-discovery -> microservices  
           
-#### extended example 
+#### Flight booking example 
 
 run all extended services (sale, airport, flight, ui), get access to <br>
 http://localhost:8080/
