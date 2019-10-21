@@ -1,0 +1,27 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        # small example
+        serverless-example:
+          path: /serverless-example/**
+          serviceId: serverless-example
+        ui-example:
+          path: /ui-example/**
+          serviceId: ui-example
+        # extended example
+        ui:
+          path: /ui/**
+          serviceId: ui
+        airports:
+          path: /airports/**
+          serviceId: airports
+        flights:
+          path: /flights/**
+          serviceId: flights
+        sales:
+          path: /sales/**
+          serviceId: sales

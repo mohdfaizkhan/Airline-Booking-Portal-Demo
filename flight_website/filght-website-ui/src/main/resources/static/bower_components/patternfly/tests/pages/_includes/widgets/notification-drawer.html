@@ -1,0 +1,117 @@
+<div class="drawer-pf hide drawer-pf-notifications-non-clickable">
+    <div class="drawer-pf-title">
+        <a class="drawer-pf-toggle-expand"></a>
+        <h3 class="text-center">Notifications Drawer</h3>
+    </div>
+    <div class="panel-group" id="notification-drawer-accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading" data-component="collapse-heading">
+                <h4 class="panel-title">
+                    <a data-parent="#notification-drawer-accordion" data-toggle="collapse" href="#fixedCollapseOne">
+                        Notification Tab 1
+                    </a>
+                </h4>
+                <span class="panel-counter">5 New Events</span>
+            </div>
+            <div class="panel-collapse collapse in" id="fixedCollapseOne">
+                <div class="panel-body">
+                    {% include widgets/notification-drawer-notifications.html id="1" %}
+                </div>
+                <div class="drawer-pf-action">
+                    <button class="btn btn-link btn-block">Mark All Read</button>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" data-component="collapse-heading">
+                <h4 class="panel-title">
+                    <a class="collapsed" data-parent="#notification-drawer-accordion" data-toggle="collapse" href="#fixedCollapseTwo">
+                        Notification Tab 2
+                    </a>
+                </h4>
+                <span class="panel-counter">5 New Events</span>
+            </div>
+            <div class="panel-collapse collapse" id="fixedCollapseTwo">
+                <div class="panel-body">
+                    {% include widgets/notification-drawer-notifications.html id="2" %}
+                    {% include widgets/notification-drawer-notifications.html id="3" %}
+                    {% include widgets/notification-drawer-notifications.html id="4" %}
+                    <div class="drawer-pf-loading text-center">
+                        <span class="spinner spinner-xs spinner-inline"></span> Loading More
+                    </div>
+                </div>
+                <div class="drawer-pf-action">
+                    <button class="btn btn-link btn-block">Mark All Read</button>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" data-component="collapse-heading">
+                <h4 class="panel-title">
+                    <a class="collapsed" data-parent="#notification-drawer-accordion" data-toggle="collapse" href="#fixedCollapseThree">
+                        Notification Tab 3
+                    </a>
+                </h4>
+                <span class="panel-counter">5 New Events</span>
+            </div>
+            <div class="panel-collapse collapse" id="fixedCollapseThree">
+                <div class="panel-body">
+                    {% include widgets/notification-drawer-notifications.html id="5" %}
+                    {% include widgets/notification-drawer-notifications.html id="6" %}
+                    {% include widgets/notification-drawer-notifications.html id="7" %}
+                </div>
+                <div class="drawer-pf-action">
+                    <button class="btn btn-link btn-block">Mark All Read</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+  $(document).ready(function() {
+    // Show/Hide Notifications Drawer
+    $('.drawer-pf-trigger').click(function() {
+      var $drawer = $('.drawer-pf');
+
+      $(this).toggleClass('open');
+      if ($drawer.hasClass('hide')) {
+        $drawer.removeClass('hide');
+        setTimeout(function () {
+          if (window.dispatchEvent) {
+            window.dispatchEvent(new Event('resize'));
+          }
+          // Special case for IE
+          if ($(document).fireEvent) {
+            $(document).fireEvent('onresize');
+          }
+        }, 100);
+      } else {
+        $drawer.addClass('hide');
+      }
+    });
+    $('.drawer-pf-toggle-expand').click(function() {
+      var $drawer = $('.drawer-pf');
+      var $drawerNotifications = $drawer.find('.drawer-pf-notification');
+
+      if ($drawer.hasClass('drawer-pf-expanded')) {
+        $drawer.removeClass('drawer-pf-expanded');
+        $drawerNotifications.removeClass('expanded-notification');
+      } else {
+        $drawer.addClass('drawer-pf-expanded');
+        $drawerNotifications.addClass('expanded-notification');
+      }
+    });
+
+    // Mark All Read
+    $('.panel-collapse').each(function (index, panel) {
+      var $panel = $(panel);
+      $panel.on('click', '.drawer-pf-action .btn', function() {
+        $panel.find('.unread').removeClass('unread');
+        $(panel.parentElement).find('.panel-counter').text('0 New Events');
+      });
+    });
+
+    $('#notification-drawer-accordion').initCollapseHeights('.panel-body');
+  });
+
+</script>

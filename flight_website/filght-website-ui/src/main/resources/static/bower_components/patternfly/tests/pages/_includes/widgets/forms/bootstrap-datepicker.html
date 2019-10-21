@@ -1,0 +1,13 @@
+<div class="input-group date" id="{{include.id}}">
+    <input class="form-control bootstrap-datepicker" readonly type="text"><span class="input-group-addon"><span
+        class="fa fa-calendar"></span></span>
+</div>
+<script>
+  $('#{{include.id}}').datepicker({
+    autoclose: true,
+    orientation: "top auto",
+    todayBtn: "linked",
+    todayHighlight: true
+  });
+
+</script>

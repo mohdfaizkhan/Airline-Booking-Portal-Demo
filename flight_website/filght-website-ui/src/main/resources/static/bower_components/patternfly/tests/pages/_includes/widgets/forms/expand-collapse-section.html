@@ -1,0 +1,81 @@
+<form class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-{{include.col-size-label}} control-label" for="{{include.id-blueprintname}}">Blueprint Name</label>
+        <div class="col-sm-{{include.col-size-field}}">
+            <input class="form-control" id="{{include.id-blueprintname}}" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-{{include.col-size-label}} control-label" for="{{include.id-catalog}}">Catalog</label>
+        <div class="col-sm-{{include.col-size-field}}">
+            <input class="form-control" id="{{include.id-catalog}}" type="text"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-{{include.col-size-label}} control-label" for="{{include.id-number}}">Number</label>
+        <div class="col-sm-{{include.col-size-field}}">
+            <input class="form-control" id="{{include.id-number}}" type="text"></div>
+    </div>
+
+    <fieldset class="fields-section-pf" id="{{include.id-fieldsection}}">
+        <legend class="fields-section-header-pf">
+            <span class="fa fa-angle-right fa-angle-down field-section-toggle-pf"></span>
+            <a class="field-section-toggle-pf" href="#{{include.id-fieldsection}}">Advanced Options</a>
+        </legend>
+        <div class="form-group">
+            <label class="col-sm-{{include.col-size-label}} control-label" for="{{include.id-entry1}}">Entry Point 1</label>
+            <div class="col-sm-{{include.col-size-field}}">
+                <input class="form-control" id="{{include.id-entry1}}" type="text"></div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-{{include.col-size-label}} control-label" for="{{include.id-entry2}}">Entry Point 2</label>
+            <div class="col-sm-{{include.col-size-field}}">
+                <input class="form-control" id="{{include.id-entry2}}" type="text"></div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-{{include.col-size-label}} control-label" for="{{include.id-entry3}}">Entry Point 3</label>
+            <div class="col-sm-{{include.col-size-field}}">
+                <input class="form-control" id="{{include.id-entry3}}" type="text"></div>
+        </div>
+    </fieldset>
+
+    {% if include.is-modal == false %}
+    <div class="form-group">
+        <div class="col-sm-offset-{{include.col-size-label}} col-sm-{{include.col-size-field}}">
+            <button class="btn btn-primary" type="submit">Save</button>
+            <button class="btn btn-default" type="submit">Cancel</button>
+        </div>
+    </div>
+    {% endif %}
+    {% if include.is-modal == true %}
+    <div class="modal-footer">
+        <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
+        <button class="btn btn-primary" type="button">Save</button>
+    </div>
+    {% endif %}
+
+
+</form>
+
+<script>
+  // Initialize form
+  $(document).ready(function() {
+    // set default state to collapsed for expandable field section
+    $('.fields-section-header-pf').attr('aria-expanded', 'false');
+    $('.fields-section-pf .form-group').addClass('hidden');
+    $('.fa.field-section-toggle-pf').removeClass('fa-angle-down');
+
+    // click the field section heading to expand the section
+    $("#{{include.id-fieldsection}} .field-section-toggle-pf").click(function(event){
+      $(this).parents(".fields-section-pf").find(".fa").toggleClass("fa-angle-down");
+      $(this).parents(".fields-section-pf").find(".form-group").toggleClass("hidden");
+      if ($(this).parent().attr('aria-expanded') == 'false') {
+        $(this).parent().attr('aria-expanded', 'true');
+      } else {
+        $(this).parent().attr('aria-expanded', 'false');
+      }
+    })
+
+  });
+
+
+</script>

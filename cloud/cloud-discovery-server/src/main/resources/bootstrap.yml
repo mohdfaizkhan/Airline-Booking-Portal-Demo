@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: mesh-server
+  main:
+    banner-mode: 'OFF'
+  profiles:
+    active: ${SPRING_PROFILE:dev}
+  output:
+    ansi:
+      enabled: ALWAYS
+
+server:
+  port: 8761
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+
+logging:
+  level:
+    com:
+      netflix:
+        eureka: OFF
+        discovery: OFF

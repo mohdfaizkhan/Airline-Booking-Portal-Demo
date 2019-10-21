@@ -1,0 +1,13 @@
+<div class="{{ include.dropmenuType }} {{ include.dropmenuPosition }} {{ include.dropmenuVariation }}">
+    <button aria-expanded="true" aria-haspopup="true" class="btn btn-link dropdown-toggle" data-toggle="dropdown"
+            id="{{ include.dropmenuId }}" type="button">
+        <span class="fa fa-ellipsis-v"></span>
+    </button>
+    <ul aria-labelledby="{{ include.dropmenuId }}" class="dropdown-menu {{ include.dropdownPosition }}">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li class="divider" role="separator"></li>
+        <li><a href="#">Separated link</a></li>
+    </ul>
+</div>

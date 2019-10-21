@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: configuration-server
+  main:
+    banner-mode: 'OFF'
+  #local mode
+  profiles:
+    active: native
+  cloud:
+    config:
+      enabled: true
+      server:
+        #local mode
+        native:
+          searchLocations: cp
+
+  output:
+    ansi:
+      enabled: ALWAYS
+
+server:
+  port: ${PORT:7777}
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true

@@ -1,0 +1,39 @@
+<div class="modal" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                {% if include.has-error == true %}{% include widgets/communication/alert-danger.html %}{% endif %}
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="{{include.id-default}}">Default</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="{{include.id-default}}" type="text"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="{{include.id-disabled}}">Disabled</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" disabled id="{{include.id-disabled}}" type="text"></div>
+                    </div>
+                    <div class="form-group {% if include.has-error == true %}has-error{% endif %}">
+                        <label class="col-sm-2 control-label" for="{{include.id-error}}">{% if include.has-error == true %}With{% else
+                            %}No{% endif %} error</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="{{include.id-error}}" type="text">
+                            {% if include.has-error == true %}
+                            <span class="help-block">Please correct the error</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+                <button class="btn btn-primary" type="button">Save changes</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

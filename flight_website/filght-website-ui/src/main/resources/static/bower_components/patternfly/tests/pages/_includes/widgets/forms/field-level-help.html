@@ -1,0 +1,18 @@
+<form class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="{{include.id}}">Default <a
+                data-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et <a href='#'>dolore magna aliqua</a>."
+                data-html="true" data-placement="top" data-toggle="popover" data-trigger="focus" role="button" tabindex="0" title=""><span
+                class="fa fa-info-circle"></span></a></label>
+        <div class="col-sm-9">
+            <input class="form-control" id="{{include.id}}" type="text">
+        </div>
+    </div>
+</form>
+<script>
+  // Initialize Popovers
+  $(document).ready(function() {
+    $('[data-toggle=popover]').popovers()
+  });
+
+</script>
