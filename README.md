@@ -23,7 +23,7 @@ docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -it --name elk local-elk
 The "docker run", command starts up Kibana on port 5601, ElasticSearch on port 9200 and LogStash on port 5044.
 Validate the kibana setup by accessing the web console on url ‘http://localhost:5601’. 
 
-![alt text](https://github.com/mohdfaizkhan/Airline-Booking-Portal-Demo/blob/master/Images/Kibana Dashbord.PNG "Kibana Dashboard)
+![alt text](https://github.com/mohdfaizkhan/Airline-Booking-Portal-Demo/blob/master/Images/Kibana-Dashbord.PNG "Kibana Dashboard")
 
 Validate Elasticsearch with the below curl command
 
