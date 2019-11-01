@@ -1,3 +1,15 @@
+
+
+Run the first docker command to pull the Zipkin image from hub.docker.com and 
+then the next docker command to start it on port 9411.
+
+$ docker pull openzipkin/zipkin
+$ docker run -d -p 9411:9411 openzipkin/zipkin
+
+Validate the setup by accessing the Zipkin web interface on the url: http://localhost:9411/zipkin/. The below screen (Image 1) should open up if there are no issues.
+
+![alt text](https://github.com/mohdfaizkhan/MyRetailStore/blob/master/screenshot/1.png "ZIPKIN-1")
+
 This repository contains Netflix OSS stack, microservices 
 
 - application yml/properties to be loaded from configuration server
