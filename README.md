@@ -8,7 +8,7 @@ $ docker run -d -p 9411:9411 openzipkin/zipkin
 
 Validate the setup by accessing the Zipkin web interface on the url: http://localhost:9411/zipkin/. The below screen (Image 1) should open up if there are no issues.
 
-![alt text](https://github.com/mohdfaizkhan/Airline-Booking-Portal-Demo/tree/master/Images/Zipkin.png "ZIPKIN-1")
+![alt text](https://github.com/mohdfaizkhan/Airline-Booking-Portal-Demo/blob/master/Images/Zipkin.PNG "ZIPKIN-1")
 
 This repository contains Netflix OSS stack, microservices 
 
