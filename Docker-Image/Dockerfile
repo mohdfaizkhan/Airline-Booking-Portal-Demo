@@ -1,4 +1,4 @@
-FROM sebp/elk
+FROM faiz/elk
 
 # overwrite existing file
 RUN rm /etc/logstash/conf.d/30-output.conf

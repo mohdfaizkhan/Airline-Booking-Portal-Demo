@@ -28,5 +28,5 @@
         <appender-ref ref="logstash"/>
     </root>
     <logger name="org.springframework" level="INFO"/>
-    <logger name="com.emirates" level="INFO"/>
+    <logger name="com.mohdfai" level="INFO"/>
 </configuration>
